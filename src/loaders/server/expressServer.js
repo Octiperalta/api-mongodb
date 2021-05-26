@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const { restart } = require("nodemon");
 const swaggerUi = require("swagger-ui-express");
 const config = require("../../config");
 const logger = require("../logger");
@@ -36,6 +37,10 @@ class ExpressServer {
     //* Ruta creada para verificar la estabilidad(caida o no) de la aplicacion
     this.app.head("/status", (req, res) => {
       res.status(200).end();
+    });
+
+    this.app.get("/gitflow", (req, res) => {
+      res.status(200).json({ test: "tihs a test of gitflow" });
     });
 
     //* Indico que todas las direcciones de 'api/v1/users'(basePathUser) se manejen con las rutas del archivo 'USERS'
