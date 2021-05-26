@@ -2,15 +2,15 @@
   "openapi": "3.0.0",
   "info": {
     "title": "API Rest base repo",
-    "description": "This is an api base to start new projects",
+    "description": "## This is an api base to start new projects",
     "contact": {
-      "email": "you@your-company.com"
+      "email": "octi.pro20@gmail.com"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "0.0.1"
+    "version": "1.0.0"
   },
   "servers": [
     {
