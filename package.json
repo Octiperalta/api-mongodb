@@ -1,6 +1,6 @@
 {
-  "name": "rest-api-2",
-  "version": "0.0.1",
+  "name": "api-rest-mongodb",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
