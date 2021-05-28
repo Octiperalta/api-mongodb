@@ -11,6 +11,7 @@ class ExpressServer {
     this.app = express();
     this.port = config.port;
     this.basePathUser = `${config.api.prefix}/users`;
+    this.basePathAuth = `${config.api.prefix}/auth`;
 
     //* Invoco cada vez que se cree una instancia
     this._middlewares(); // Se aplican los middlewares
@@ -42,6 +43,8 @@ class ExpressServer {
     this.app.get("/gitflow", (req, res) => {
       res.status(200).json({ test: "tihs a test of gitflow" });
     });
+    //* Indico que todas las direcciones de 'api/v1/auth'(basePathUser) se manejen con las rutas del archivo 'AUTH'
+    this.app.use(this.basePathAuth, require("../../routes/auth"));
 
     //* Indico que todas las direcciones de 'api/v1/users'(basePathUser) se manejen con las rutas del archivo 'USERS'
     this.app.use(this.basePathUser, require("../../routes/users"));
@@ -67,6 +70,7 @@ class ExpressServer {
         error: {
           code,
           message: err.message,
+          detail: err.data,
         },
       };
       res.status(code).json(body);
