@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const morgan = require("morgan");
 const { restart } = require("nodemon");
 const swaggerUi = require("swagger-ui-express");
@@ -40,8 +41,8 @@ class ExpressServer {
       res.status(200).end();
     });
 
-    this.app.get("/gitflow", (req, res) => {
-      res.status(200).json({ test: "tihs a test of gitflow" });
+    this.app.get("/tests-report", (req, res) => {
+      res.sendFile(path.join(__dirname + "../../../../postman/report.html"));
     });
     //* Indico que todas las direcciones de 'api/v1/auth'(basePathUser) se manejen con las rutas del archivo 'AUTH'
     this.app.use(this.basePathAuth, require("../../routes/auth"));
