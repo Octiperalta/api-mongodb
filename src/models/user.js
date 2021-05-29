@@ -46,7 +46,7 @@ userSchema.plugin(mongooseUniqueValidator, {
   message: "duplicated key error",
 });
 
-//? Plugin necesario para el control de los campos unicos
+//? Plugin necesario para poder realiar un paginado
 userSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model("User", userSchema);

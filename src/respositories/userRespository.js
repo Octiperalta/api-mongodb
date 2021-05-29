@@ -12,6 +12,10 @@ class UserRepository {
     return await User.paginate(filter, options);
   }
 
+  async findByEmail(email) {
+    return await User.findOne({ email });
+  }
+
   async findById(id) {
     return await User.findById(id);
   }
